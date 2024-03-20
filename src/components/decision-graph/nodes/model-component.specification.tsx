@@ -1,11 +1,9 @@
-import { ComponentOutlined, DeleteOutlined, DownOutlined } from '@ant-design/icons';
+import { CommentOutlined, DownOutlined } from '@ant-design/icons';
 import { Button, Dropdown, Menu, Typography } from 'antd';
 import clsx from 'clsx';
 import React, { useState } from 'react';
-import { Handle, Position } from 'reactflow';
 import { v4 } from 'uuid';
 
-import { AutosizeTextArea } from '../../autosize-text-area';
 import { useDecisionGraphActions, useDecisionGraphState } from '../context/dg-store.context';
 import { GraphNode } from './graph-node';
 import type { MinimalNodeProps, NodeSpecification } from './specification-types';
@@ -30,7 +28,7 @@ const componentList = [
 
 export const modelComponentSpecification: NodeSpecification<NodeModelComponentData> = {
   type: NodeKind.Model,
-  icon: <ComponentOutlined />,
+  icon: <CommentOutlined />,
   displayName: 'Custom Component',
   documentationUrl: 'https://example.com/docs/custom-components',
   shortDescription: 'Custom component node',
