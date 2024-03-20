@@ -6,6 +6,7 @@ import { outputSpecification } from './output.specification';
 import type { NodeSpecification } from './specification-types';
 import { NodeKind } from './specification-types';
 import { switchSpecification } from './switch.specification';
+import {customComponentSpecification} from "./custom-component.specification";
 
 function makeNodeSpecification<T extends Record<NodeKind, V>, V extends NodeSpecification>(o: T): Readonly<T> {
   return o;
@@ -18,4 +19,6 @@ export const nodeSpecification = makeNodeSpecification({
   [NodeKind.Function]: functionSpecification,
   [NodeKind.Expression]: expressionSpecification,
   [NodeKind.Switch]: switchSpecification,
+  [NodeKind.Custom]: customComponentSpecification,
+
 });
