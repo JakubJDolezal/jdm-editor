@@ -1,0 +1,1 @@
+{"version":3,"file":"custom-edge.d.ts","sourceRoot":"","sources":["../../../src/components/decision-graph/custom-edge.tsx"],"names":[],"mappings":"AAGA,OAAO,KAAK,MAAM,OAAO,CAAC;AAC1B,OAAO,KAAK,EAAE,SAAS,EAAE,MAAM,WAAW,CAAC;AAK3C,eAAO,MAAM,UAAU,EAAE,KAAK,CAAC,EAAE,CAAC,SAAS,CA0C1C,CAAC;AAEF,eAAO,MAAM,YAAY,UAAW,GAAG,aAAa,GAAG,4CAAyC,CAAC"}
