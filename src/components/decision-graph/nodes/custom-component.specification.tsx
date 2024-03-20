@@ -11,14 +11,14 @@ import { GraphNode } from './graph-node';
 import type { MinimalNodeProps, NodeSpecification } from './specification-types';
 import { NodeKind } from './specification-types';
 
-export type CustomComponent = {
+export type ModelComponent = {
   id?: string;
   type?: string; // Additional properties can be added here based on the component's needs
 };
 
-export type NodeCustomComponentData = {
+export type NodeModelComponentData = {
   selectedComponentType?: string;
-  components?: CustomComponent[];
+  components?: ModelComponent[];
 };
 
 // Sample list of custom components
@@ -28,22 +28,22 @@ const componentList = [
   // Add more components as needed
 ];
 
-export const customComponentSpecification: NodeSpecification<NodeCustomComponentData> = {
-  type: NodeKind.Custom,
+export const modelComponentSpecification: NodeSpecification<NodeModelComponentData> = {
+  type: NodeKind.Model,
   icon: <ComponentOutlined />,
   displayName: 'Custom Component',
   documentationUrl: 'https://example.com/docs/custom-components',
   shortDescription: 'Custom component node',
   generateNode: () => ({
-    name: 'myCustomComponent',
+    name: 'modelComponent',
     content: {
       components: [{ id: v4(), type: '' }],
     },
   }),
-  renderNode: ({ specification, ...props }) => <CustomComponentNode specification={specification} {...props} />,
+  renderNode: ({ specification, ...props }) => <ModelComponentNode specification={specification} {...props} />,
 };
 
-const CustomComponentNode: React.FC<
+const ModelComponentNode: React.FC<
   MinimalNodeProps & {
     specification: Pick<NodeSpecification, 'displayName' | 'icon' | 'documentationUrl'>;
   }
@@ -67,7 +67,7 @@ const CustomComponentNode: React.FC<
   return (
     <GraphNode
       id={id}
-      className={clsx(['custom-component'])}
+      className={clsx(['model-component'])}
       specification={specification}
       name={data.name}
       handleRight={false}
@@ -95,8 +95,8 @@ const CustomComponentNode: React.FC<
         </Dropdown>,
       ]}
     >
-      <div className='customComponentNode'>
-        <div className='customComponentNode__body edit nodrag'>
+      <div className='ModelComponentNode'>
+        <div className='modelComponentNode__body edit nodrag'>
           {selectedComponent ? (
             <Typography.Text>{`Selected Component: ${selectedComponent}`}</Typography.Text>
           ) : (

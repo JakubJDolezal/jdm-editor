@@ -1,11 +1,11 @@
 import type { NodeSpecification } from './specification-types';
-export type CustomComponent = {
+export type ModelComponent = {
     id?: string;
     type?: string;
 };
-export type NodeCustomComponentData = {
+export type NodeModelComponentData = {
     selectedComponentType?: string;
-    components?: CustomComponent[];
+    components?: ModelComponent[];
 };
-export declare const customComponentSpecification: NodeSpecification<NodeCustomComponentData>;
+export declare const modelComponentSpecification: NodeSpecification<NodeModelComponentData>;
 //# sourceMappingURL=custom-component.specification.d.ts.map
