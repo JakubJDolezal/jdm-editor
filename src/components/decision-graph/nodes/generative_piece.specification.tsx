@@ -8,12 +8,12 @@ import { GraphNode } from './graph-node';
 import type { NodeSpecification } from './specification-types';
 import { NodeKind } from './specification-types';
 
-export type NodeFunctionData = string;
+export type NodeGenAIData = string;
 
-export const genAiSpecification: NodeSpecification<NodeFunctionData> = {
+export const genAiSpecification: NodeSpecification<NodeGenAIData> = {
   type: NodeKind.GenAI,
   icon: <RobotOutlined />,
-  displayName: 'Function',
+  displayName: 'GenAI',
   documentationUrl: 'https://gorules.io/docs/user-manual/decision-modeling/decisions/functions',
   shortDescription: '',
   generateNode: () => ({
@@ -31,7 +31,7 @@ export const genAiSpecification: NodeSpecification<NodeFunctionData> = {
         isSelected={selected}
         actions={[
           <Button key='edit-function' type='link' onClick={() => graphActions.openTab(id)}>
-            Edit Function
+            Edit GenAI Call
           </Button>,
         ]}
       />

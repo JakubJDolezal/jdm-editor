@@ -65174,7 +65174,7 @@ const handler = (input, { dayjs, Big }) => {
 }, rne = {
   type: dn.GenAI,
   icon: /* @__PURE__ */ W.jsx(RU, {}),
-  displayName: "Function",
+  displayName: "GenAI",
   documentationUrl: "https://gorules.io/docs/user-manual/decision-modeling/decisions/functions",
   shortDescription: "",
   generateNode: () => ({
@@ -65191,7 +65191,7 @@ const handler = (input, { dayjs, Big }) => {
         name: t.name,
         isSelected: n,
         actions: [
-          /* @__PURE__ */ W.jsx(Bt, { type: "link", onClick: () => i.openTab(e), children: "Edit Function" }, "edit-function")
+          /* @__PURE__ */ W.jsx(Bt, { type: "link", onClick: () => i.openTab(e), children: "Edit GenAI Call" }, "edit-function")
         ]
       }
     );
