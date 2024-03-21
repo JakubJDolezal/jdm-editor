@@ -7,5 +7,6 @@ export declare const nodeSpecification: Readonly<{
     expressionNode: NodeSpecification<import("./expression.specification").NodeExpressionData>;
     switchNode: NodeSpecification<import("./switch.specification").NodeSwitchData>;
     modelNode: NodeSpecification<import("./model-component.specification").NodeModelComponentData>;
+    genAINode: NodeSpecification<string>;
 }>;
 //# sourceMappingURL=specifications.d.ts.map

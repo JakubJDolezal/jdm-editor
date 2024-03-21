@@ -1,7 +1,8 @@
-import {CommentOutlined, DownOutlined} from '@ant-design/icons';
+import {HighlightOutlined, DownOutlined} from '@ant-design/icons';
+
+import React, { useEffect, useState } from 'react';
 import { Button, Dropdown, Typography } from 'antd';
 import clsx from 'clsx';
-import React from 'react';
 import { v4 } from 'uuid';
 
 import { useDecisionGraphActions, useDecisionGraphState } from '../context/dg-store.context';
@@ -24,7 +25,7 @@ export type NodeModelComponentData = {
 
 export const modelComponentSpecification: NodeSpecification<NodeModelComponentData> = {
   type: NodeKind.Model,
-  icon: <CommentOutlined />,
+  icon: <HighlightOutlined />,
   displayName: 'Custom Component',
   documentationUrl: 'https://example.com/docs/custom-components',
   shortDescription: 'Model component node',
@@ -51,11 +52,34 @@ const ModelComponentNode: React.FC<
     disabled,
   }));
 
-  const model = content?.modelName || 'Mixtral';
+  const modelName = content?.modelName || 'Mixtral';
 
-  const changeModel = (model: string) => {
+  const [fetchError, setFetchError] = useState(false);
+
+
+  useEffect(() => {
+  fetch('/api/model-component-data/')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((fetchedData: NodeModelComponentData) => {
+      graphActions.updateNode(id, (node) => {
+        node.content = { ...node.content, ...fetchedData };
+        return node;
+      });
+    })
+    .catch((error) => {
+      console.error('Fetching model component data failed:', error);
+      setFetchError(true);
+    });
+  }, [id, graphActions]);
+
+  const changeModel = (modelName: string) => {
     graphActions.updateNode(id, (node) => {
-      node.content.modelName = model;
+      node.content.modelName = modelName;
       return node;
     });
   };
@@ -63,7 +87,7 @@ const ModelComponentNode: React.FC<
   return (
     <GraphNode
       id={id}
-      className={clsx(['switch'])}
+      className={clsx(['model'])}
       specification={specification}
       name={data.name}
       handleRight={true}
@@ -92,7 +116,7 @@ const ModelComponentNode: React.FC<
         >
 
           <Button type='link' style={{ textTransform: 'capitalize', marginLeft: 'auto' }}>
-            {model} <DownOutlined />
+            {modelName} <DownOutlined />
           </Button>
         </Dropdown>,
       ]}
@@ -102,6 +126,11 @@ const ModelComponentNode: React.FC<
           {(1) && (
             <Typography.Text type={'secondary'} className={'no-conditions'}>
               No conditions
+            </Typography.Text>
+          )}
+          {fetchError && (
+            <Typography.Text type={'danger'}>
+              Error fetching model data.
             </Typography.Text>
           )}
         </div>
