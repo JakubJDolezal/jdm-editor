@@ -1,4 +1,7 @@
 import type { NodeSpecification } from './specification-types';
+export type ModelData = {
+    Model?: 'Mixtral' | 'DebertaNer';
+};
 export type ModelComponent = {
     id?: string;
     type?: string;
