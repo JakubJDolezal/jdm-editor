@@ -1,4 +1,4 @@
-import {HighlightOutlined, DownOutlined} from '@ant-design/icons';
+import {HighlightOutlined, DownOutlined, RobotOutlined, CommentOutlined} from '@ant-design/icons';
 
 import React, { useEffect, useState } from 'react';
 import { Button, Dropdown, Typography } from 'antd';
@@ -25,7 +25,10 @@ export type NodeModelComponentData = {
 
 export const modelComponentSpecification: NodeSpecification<NodeModelComponentData> = {
   type: NodeKind.Model,
-  icon: <HighlightOutlined />,
+  icon:   <>
+    <RobotOutlined />
+    <HighlightOutlined />
+  </>,
   displayName: 'Custom Component',
   documentationUrl: 'https://example.com/docs/custom-components',
   shortDescription: 'Model component node',
@@ -58,7 +61,7 @@ const ModelComponentNode: React.FC<
 
 
   useEffect(() => {
-  fetch('/api/model-component-data/')
+  fetch('http://localhost:8000/api/model-component-data/')
     .then(response => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);

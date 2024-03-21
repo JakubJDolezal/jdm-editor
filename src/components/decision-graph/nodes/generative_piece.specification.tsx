@@ -1,4 +1,4 @@
-import { RobotOutlined  } from '@ant-design/icons';
+import { RobotOutlined, CommentOutlined  } from '@ant-design/icons';
 import { Button } from 'antd';
 import React from 'react';
 
@@ -12,7 +12,10 @@ export type NodeGenAIData = string;
 
 export const genAiSpecification: NodeSpecification<NodeGenAIData> = {
   type: NodeKind.GenAI,
-  icon: <RobotOutlined />,
+  icon:   <>
+    <RobotOutlined />
+    <CommentOutlined />
+  </>,
   displayName: 'GenAI',
   documentationUrl: 'https://gorules.io/docs/user-manual/decision-modeling/decisions/functions',
   shortDescription: '',
