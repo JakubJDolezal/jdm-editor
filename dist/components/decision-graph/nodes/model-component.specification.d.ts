@@ -1,13 +1,10 @@
 import type { NodeSpecification } from './specification-types';
-export type ModelData = {
-    Model?: 'Mixtral' | 'DebertaNer';
-};
 export type ModelComponent = {
     id?: string;
     type?: string;
 };
 export type NodeModelComponentData = {
-    selectedComponentType?: string;
+    modelName?: 'Mixtral' | 'DebertaNer';
     components?: ModelComponent[];
 };
 export declare const modelComponentSpecification: NodeSpecification<NodeModelComponentData>;

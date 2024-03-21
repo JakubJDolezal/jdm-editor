@@ -65100,8 +65100,8 @@ const handler = (input, { dayjs, Big }) => {
       content: (h = ((l == null ? void 0 : l.nodes) || []).find((g) => (g == null ? void 0 : g.id) === e)) == null ? void 0 : h.content,
       disabled: u
     };
-  }), s = (o == null ? void 0 : o.Model) || "Mixtral", d = (l) => {
-    i.updateNode(e, (u) => (u.content.model = l, u));
+  }), s = (o == null ? void 0 : o.modelName) || "Mixtral", d = (l) => {
+    i.updateNode(e, (u) => (u.content.modelName = l, u));
   };
   return /* @__PURE__ */ W.jsx(
     Ga,
@@ -65140,7 +65140,7 @@ const handler = (input, { dayjs, Big }) => {
               /* @__PURE__ */ W.jsx(Ff, {})
             ] })
           },
-          "model"
+          "modelName"
         )
       ],
       children: /* @__PURE__ */ W.jsx("div", { className: "switchNode", children: /* @__PURE__ */ W.jsx("div", { className: "switchNode__body edit nodrag", children: /* @__PURE__ */ W.jsx(Wt.Text, { type: "secondary", className: "no-conditions", children: "No conditions" }) }) })

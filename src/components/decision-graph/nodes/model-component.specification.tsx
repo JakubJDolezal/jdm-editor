@@ -10,23 +10,17 @@ import type { MinimalNodeProps, NodeSpecification } from './specification-types'
 import { NodeKind } from './specification-types';
 import { P, match } from 'ts-pattern';
 
-export type ModelData = {
-  Model?: 'Mixtral' | 'DebertaNer';
-};
+
 export type ModelComponent = {
   id?: string;
   type?: string;
 };
 
 export type NodeModelComponentData = {
-  selectedComponentType?: string;
+  modelName?: 'Mixtral' | 'DebertaNer';
   components?: ModelComponent[];
 };
-//
-// const componentList = [
-//   { id: 'comp1', name: 'Component 1' },
-//   { id: 'comp2', name: 'Component 2' },
-// ];
+
 
 export const modelComponentSpecification: NodeSpecification<NodeModelComponentData> = {
   type: NodeKind.Model,
@@ -53,15 +47,15 @@ const ModelComponentNode: React.FC<
     nodeTrace: match(simulate)
       .with({ result: P._ }, ({ result }) => result?.trace?.[id]?.traceData)
       .otherwise(() => null),
-    content: (decisionGraph?.nodes || []).find((n) => n?.id === id)?.content as ModelData | undefined,
+    content: (decisionGraph?.nodes || []).find((n) => n?.id === id)?.content as NodeModelComponentData | undefined,
     disabled,
   }));
 
-  const model = content?.Model || 'Mixtral';
+  const model = content?.modelName || 'Mixtral';
 
-  const changeHitPolicy = (model: string) => {
+  const changeModel = (model: string) => {
     graphActions.updateNode(id, (node) => {
-      node.content.model = model;
+      node.content.modelName = model;
       return node;
     });
   };
@@ -77,7 +71,7 @@ const ModelComponentNode: React.FC<
       isSelected={selected}
       actions={[
         <Dropdown
-          key='model'
+          key='modelName'
           trigger={['click']}
           placement='bottomRight'
           disabled={disabled}
@@ -86,12 +80,12 @@ const ModelComponentNode: React.FC<
               {
                 key: 'debertaner',
                 label: 'DebertaNer',
-                onClick: () => changeHitPolicy('DebertaNer'),
+                onClick: () => changeModel('DebertaNer'),
               },
               {
                 key: 'mixtral',
                 label: 'Mixtral',
-                onClick: () => changeHitPolicy('Mixtral'),
+                onClick: () => changeModel('Mixtral'),
               },
             ],
           }}
