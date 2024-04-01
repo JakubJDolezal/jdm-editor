@@ -66073,7 +66073,7 @@ const Dne = () => X.useContext(Sy), Ane = ({
   return /* @__PURE__ */ V.jsxs("div", { className: "ga-list", children: [
     /* @__PURE__ */ V.jsxs("div", { className: an("ga-list__item", "ga-list__item--heading"), children: [
       /* @__PURE__ */ V.jsx("div", {}),
-      /* @__PURE__ */ V.jsx(jt.Text, { type: "secondary", children: "Key" }),
+      /* @__PURE__ */ V.jsx(jt.Text, { type: "secondary", children: "Prompts" }),
       /* @__PURE__ */ V.jsx(jt.Text, { type: "secondary", children: "GA" }),
       /* @__PURE__ */ V.jsx("div", {})
     ] }),
@@ -66118,7 +66118,7 @@ const Dne = () => X.useContext(Sy), Ane = ({
   return /* @__PURE__ */ V.jsx("div", { style: { maxWidth: 900, height: "100%", overflowY: "auto", boxSizing: "border-box", paddingBottom: "1.5rem" }, children: /* @__PURE__ */ V.jsx(
     Mne,
     {
-      value: o == null ? void 0 : o.expressions,
+      value: o == null ? void 0 : o.gas,
       onChange: (a) => {
         n.updateNode(e, (c) => (c.content.expressions = a, c));
       },
