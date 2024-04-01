@@ -7,7 +7,7 @@ import type { NodeSpecification } from './specification-types';
 import { NodeKind } from './specification-types';
 import { switchSpecification } from './switch.specification';
 import {modelComponentSpecification} from "./model-component.specification";
-import {genAiSpecification} from "./generative_piece.specification";
+import {genAiSpecification} from "./generative-ai.specification";
 
 function makeNodeSpecification<T extends Record<NodeKind, V>, V extends NodeSpecification>(o: T): Readonly<T> {
   return o;

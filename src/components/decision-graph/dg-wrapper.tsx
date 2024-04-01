@@ -15,6 +15,7 @@ import { GraphTabs } from './graph/graph-tabs';
 import { TabDecisionTable } from './graph/tab-decision-table';
 import { TabExpression } from './graph/tab-expression';
 import { TabFunction } from './graph/tab-function';
+import { TabGenAI } from './graph/tab-gen-ai';
 
 export type DecisionGraphWrapperProps = {
   reactFlowProOptions?: ProOptions;
@@ -71,7 +72,10 @@ const TabContents: React.FC = React.memo(() => {
         <div key={node?.id} className={clsx(['tab-content', activeNodeId === node?.id && 'active'])}>
           {node?.type === 'decisionTableNode' && <TabDecisionTable id={node.id} manager={dndManager} />}
           {node?.type === 'expressionNode' && <TabExpression id={node.id} manager={dndManager} />}
+          {node?.type === 'genAINode' && <TabGenAI id={node.id} manager={dndManager} />}
+          {/*{node?.type === 'modelNode' && <TabModel id={node.id} manager={dndManager} />}*/}
           {node?.type === 'functionNode' && <TabFunction id={node.id} />}
+
         </div>
       ))}
     </div>
