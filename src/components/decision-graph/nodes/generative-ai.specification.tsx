@@ -8,24 +8,25 @@ import { GraphNode } from './graph-node';
 import type { NodeSpecification } from './specification-types';
 import { NodeKind } from './specification-types';
 
-export type NodeGenAIData = string;
 
-export type Expression = {
-  id?: string;
-  key?: string;
-  value?: string;
+export type NodeGenAIData = {
+  gas?: GAEntry[];
 };
-
+export type GAEntry = {
+  id: string;
+  prompt: string;
+  choice: 'json' | 'append' | 'multi-level json';
+};
 
 export const genAiSpecification: NodeSpecification<NodeGenAIData> = {
   type: NodeKind.GenAI,
   icon:   <>
-    <RobotOutlined />
     <CommentOutlined />
+    <RobotOutlined />
   </>,
   displayName: 'GenAI',
-  documentationUrl: 'https://gorules.io/docs/user-manual/decision-modeling/decisions/functions',
-  shortDescription: '',
+  documentationUrl: 'https://example.com/docs/custom-components',
+  shortDescription: 'Generative AI piece',
   generateNode: () => ({
     name: 'myGenAI',
     content: defaultFunctionValue,

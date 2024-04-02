@@ -1,0 +1,1 @@
+{"version":3,"file":"model-item.d.ts","sourceRoot":"","sources":["../../../src/components/model/model-item.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAsC,MAAM,OAAO,CAAC;AAO3D,OAAO,KAAK,EAAE,UAAU,EAAe,MAAM,+BAA+B,CAAC;AAG7E,MAAM,MAAM,cAAc,GAAG;IAC3B,KAAK,EAAE,UAAU,CAAC;IAClB,KAAK,EAAE,MAAM,CAAC;CACf,CAAC;AACF,eAAO,MAAM,SAAS,EAAE,KAAK,CAAC,EAAE,CAAC,cAAc,CAiI9C,CAAC"}

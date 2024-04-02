@@ -1,15 +1,15 @@
 import type { DragDropManager } from 'dnd-core';
 import React from 'react';
 
-import { GA } from '../../gen-ai/GA';
+import { Model } from '../../model/Model';
 import { useDecisionGraphActions, useDecisionGraphState } from '../context/dg-store.context';
 
-export type TabGAProps = {
+export type TabModelProps = {
   id: string;
   manager?: DragDropManager;
 };
 
-export const TabGenAI: React.FC<TabGAProps> = ({ id, manager }) => {
+export const TabModel: React.FC<TabModelProps> = ({ id, manager }) => {
   const graphActions = useDecisionGraphActions();
   const { disabled, configurable, content } = useDecisionGraphState(({ disabled, configurable, decisionGraph }) => ({
     disabled,
@@ -19,11 +19,11 @@ export const TabGenAI: React.FC<TabGAProps> = ({ id, manager }) => {
 
   return (
     <div style={{ maxWidth: 900, height: '100%', overflowY: 'auto', boxSizing: 'border-box', paddingBottom: '1.5rem' }}>
-      <GA
-        value={content?.gas}
+      <Model
+        value={content?.models}
         onChange={(val) => {
           graphActions.updateNode(id, (draft) => {
-            draft.content.gas = val;
+            draft.content.models = val;
             return draft;
           });
         }}
