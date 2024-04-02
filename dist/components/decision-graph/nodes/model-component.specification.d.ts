@@ -5,7 +5,7 @@ export type ModelComponent = {
     allowed_categories: string[];
 };
 export type NodeModelComponentData = {
-    components?: ModelComponent[];
+    models?: ModelComponent[];
 };
 export declare const modelComponentSpecification: NodeSpecification<NodeModelComponentData>;
 //# sourceMappingURL=model-component.specification.d.ts.map

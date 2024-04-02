@@ -2,7 +2,6 @@ import { RobotOutlined, CommentOutlined  } from '@ant-design/icons';
 import { Button } from 'antd';
 import React from 'react';
 
-import { defaultFunctionValue } from '../../function/helpers/libs';
 import { useDecisionGraphActions } from '../context/dg-store.context';
 import { GraphNode } from './graph-node';
 import type { NodeSpecification } from './specification-types';
@@ -29,7 +28,7 @@ export const genAiSpecification: NodeSpecification<NodeGenAIData> = {
   shortDescription: 'Generative AI piece',
   generateNode: () => ({
     name: 'myGenAI',
-    content: defaultFunctionValue,
+    content: {gas:[]},
   }),
   renderNode: ({ id, data, selected, specification }) => {
     const graphActions = useDecisionGraphActions();

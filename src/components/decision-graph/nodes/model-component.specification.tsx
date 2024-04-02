@@ -7,7 +7,6 @@ import { useDecisionGraphActions } from '../context/dg-store.context';
 import { GraphNode } from './graph-node';
 import type { NodeSpecification } from './specification-types';
 import { NodeKind } from './specification-types';
-import {defaultFunctionValue} from "../../function/helpers/libs";
 
 
 export type ModelComponent = {
@@ -17,7 +16,7 @@ export type ModelComponent = {
 };
 
 export type NodeModelComponentData = {
-  components?: ModelComponent[];
+  models?: ModelComponent[];
 };
 
 
@@ -32,7 +31,7 @@ export const modelComponentSpecification: NodeSpecification<NodeModelComponentDa
   shortDescription: 'Model component node',
   generateNode: () => ({
     name: 'myModel',
-    content: defaultFunctionValue,
+    content: {models:[]},
   }),
   renderNode: ({ id, data, selected, specification }) => {
     const graphActions = useDecisionGraphActions();
