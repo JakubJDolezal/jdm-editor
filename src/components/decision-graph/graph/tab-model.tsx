@@ -20,7 +20,7 @@ export const TabModel: React.FC<TabModelProps> = ({ id, manager }) => {
   return (
     <div style={{ maxWidth: 900, height: '100%', overflowY: 'auto', boxSizing: 'border-box', paddingBottom: '1.5rem' }}>
       <Model
-        value={content?.models}
+        value={content as any}
         onChange={(val) => {
           graphActions.updateNode(id, (draft) => {
             draft.content.models = val;

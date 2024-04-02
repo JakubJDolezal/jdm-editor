@@ -20,7 +20,7 @@ export const TabGenAI: React.FC<TabGAProps> = ({ id, manager }) => {
   return (
     <div style={{ maxWidth: 900, height: '100%', overflowY: 'auto', boxSizing: 'border-box', paddingBottom: '1.5rem' }}>
       <GA
-        value={content?.gas}
+        value={content as any}
         onChange={(val) => {
           graphActions.updateNode(id, (draft) => {
             draft.content.gas = val;
