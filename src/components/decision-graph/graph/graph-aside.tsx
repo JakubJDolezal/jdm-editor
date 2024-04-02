@@ -83,7 +83,7 @@ export const GraphAside: React.FC<GraphAsideProps> = ({ defaultOpenMenu = 'compo
       const blob = new Blob([json], { type: 'application/json' });
       const href = URL.createObjectURL(blob);
 
-      // create "a" HTLM element with href to file
+      // create "a" HTML element with href to file
       const link = window.document.createElement('a');
       link.href = href;
       link.download = fileName;

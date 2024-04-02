@@ -66058,7 +66058,7 @@ const Rne = () => X.useContext($y), Tne = ({
   return /* @__PURE__ */ V.jsx("div", { style: { maxWidth: 900, height: "100%", overflowY: "auto", boxSizing: "border-box", paddingBottom: "1.5rem" }, children: /* @__PURE__ */ V.jsx(
     Nne,
     {
-      value: o,
+      value: o == null ? void 0 : o.gas,
       onChange: (a) => {
         n.updateNode(e, (c) => (c.content.gas = a, c));
       },
@@ -66302,7 +66302,7 @@ const Fne = () => X.useContext(Oy), kne = ({
   return /* @__PURE__ */ V.jsx("div", { style: { maxWidth: 900, height: "100%", overflowY: "auto", boxSizing: "border-box", paddingBottom: "1.5rem" }, children: /* @__PURE__ */ V.jsx(
     zne,
     {
-      value: o,
+      value: o == null ? void 0 : o.models,
       onChange: (a) => {
         n.updateNode(e, (c) => (c.content.models = a, c));
       },
