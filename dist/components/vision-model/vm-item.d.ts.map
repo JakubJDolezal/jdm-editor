@@ -1,0 +1,1 @@
+{"version":3,"file":"vm-item.d.ts","sourceRoot":"","sources":["../../../src/components/vision-model/vm-item.tsx"],"names":[],"mappings":"AAIA,OAAO,KAAoC,MAAM,OAAO,CAAC;AAIzD,OAAO,KAAK,EAAE,OAAO,EAAe,MAAM,4BAA4B,CAAC;AAGvE,MAAM,MAAM,WAAW,GAAG;IACxB,EAAE,EAAE,OAAO,CAAC;IACZ,KAAK,EAAE,MAAM,CAAC;CACf,CAAC;AAEF,eAAO,MAAM,MAAM,EAAE,KAAK,CAAC,EAAE,CAAC,WAAW,CAiHxC,CAAC"}

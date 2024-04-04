@@ -10,7 +10,9 @@ export declare enum NodeKind {
     Expression = "expressionNode",
     Switch = "switchNode",
     Model = "modelNode",
-    GenAI = "genAINode"
+    CruftModel = "cruftModelNode",
+    GenAI = "genAINode",
+    VisualModel = "visualModelNode"
 }
 export type MinimalNodeProps = Pick<NodeProps, 'id' | 'data' | 'selected'>;
 export type MinimalNodeSpecification = Pick<NodeSpecification, 'color' | 'icon' | 'displayName' | 'documentationUrl'>;

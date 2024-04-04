@@ -1,1 +1,1 @@
-{"version":3,"file":"specifications.d.ts","sourceRoot":"","sources":["../../../../src/components/decision-graph/nodes/specifications.tsx"],"names":[],"mappings":"AAKA,OAAO,KAAK,EAAE,iBAAiB,EAAE,MAAM,uBAAuB,CAAC;AAU/D,eAAO,MAAM,iBAAiB;;;;;;;;;EAS5B,CAAC"}
+{"version":3,"file":"specifications.d.ts","sourceRoot":"","sources":["../../../../src/components/decision-graph/nodes/specifications.tsx"],"names":[],"mappings":"AAKA,OAAO,KAAK,EAAE,iBAAiB,EAAE,MAAM,uBAAuB,CAAC;AAC/D,OAAO,EAAE,QAAQ,EAAE,MAAM,uBAAuB,CAAC;AASjD,eAAO,MAAM,iBAAiB,+CAS5B,CAAC"}
