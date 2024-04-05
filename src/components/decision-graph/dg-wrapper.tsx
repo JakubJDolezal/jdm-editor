@@ -18,6 +18,7 @@ import { TabFunction } from './graph/tab-function';
 import { TabGenAI } from './graph/tab-gen-ai';
 import { TabModel } from  './graph/tab-model'
 import { TabCruftModel } from  './graph/tab-cruft-model'
+import { TabVisionModel } from  './graph/tab-vision-model'
 
 export type DecisionGraphWrapperProps = {
   reactFlowProOptions?: ProOptions;
@@ -76,8 +77,8 @@ const TabContents: React.FC = React.memo(() => {
           {node?.type === 'expressionNode' && <TabExpression id={node.id} manager={dndManager} />}
           {node?.type === 'genAINode' && <TabGenAI id={node.id} manager={dndManager} />}
           {node?.type === 'modelNode' && <TabModel id={node.id} manager={dndManager} />}
-          {node?.type === 'genAINode' && <TabGenAI id={node.id} manager={dndManager} />}
-          {node?.type === 'cruftmodelNode' && <TabCruftModel id={node.id} manager={dndManager} />}
+          {node?.type === 'visualModelNode' && <TabVisionModel id={node.id} manager={dndManager} />}
+          {node?.type === 'cruftModelNode' && <TabCruftModel id={node.id} manager={dndManager} />}
           {node?.type === 'functionNode' && <TabFunction id={node.id} />}
 
         </div>

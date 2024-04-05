@@ -44,7 +44,7 @@ export const cruft_modelComponentSpecification: NodeSpecification<NodeCruftModel
         isSelected={selected}
         actions={[
           <Button key='edit-function' type='link' onClick={() => graphActions.openTab(id)}>
-            Edit Model Call
+            Edit Cruft Model Call
           </Button>,
         ]}
       />

@@ -9,7 +9,7 @@ export type TabModelProps = {
   manager?: DragDropManager;
 };
 
-export const TabCruftModel: React.FC<TabModelProps> = ({ id, manager }) => {
+export const TabVisionModel: React.FC<TabModelProps> = ({ id, manager }) => {
   const graphActions = useDecisionGraphActions();
   const { disabled, configurable, content } = useDecisionGraphState(({ disabled, configurable, decisionGraph }) => ({
     disabled,
@@ -20,10 +20,10 @@ export const TabCruftModel: React.FC<TabModelProps> = ({ id, manager }) => {
   return (
     <div style={{ maxWidth: 900, height: '100%', overflowY: 'auto', boxSizing: 'border-box', paddingBottom: '1.5rem' }}>
       <Model
-        value={content?.cruft_models}
+        value={content?.vms}
         onChange={(val) => {
           graphActions.updateNode(id, (draft) => {
-            draft.content.cruft_models = val;
+            draft.content.vms = val;
             return draft;
           });
         }}
