@@ -1,4 +1,4 @@
-import { RobotOutlined, SearchOutlined  } from '@ant-design/icons';
+import { RobotOutlined, EyeOutlined  } from '@ant-design/icons';
 import { Button } from 'antd';
 import React from 'react';
 
@@ -17,15 +17,15 @@ export type VMEntry = {
   page: string;
 };
 
-export const genAiSpecification: NodeSpecification<NodeVMData> = {
+export const visionModelSpecification: NodeSpecification<NodeVMData> = {
   type: NodeKind.VisualModel,
   icon:   <>
-    <SearchOutlined />
+    <EyeOutlined />
     <RobotOutlined />
   </>,
   displayName: 'Visual Models',
   documentationUrl: 'https://example.com/docs/custom-components',
-  shortDescription: 'Generative AI piece',
+  shortDescription: 'Image to text model',
   generateNode: () => ({
     name: 'myVisualModel',
     content: {vms:[]},

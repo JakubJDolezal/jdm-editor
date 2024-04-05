@@ -7,5 +7,5 @@ export type VMEntry = {
     model_name: string;
     page: string;
 };
-export declare const genAiSpecification: NodeSpecification<NodeVMData>;
+export declare const visionModelSpecification: NodeSpecification<NodeVMData>;
 //# sourceMappingURL=vision-model.specification.d.ts.map

@@ -28,7 +28,7 @@ export const cruft_modelComponentSpecification: NodeSpecification<NodeCruftModel
   </>,
   displayName: 'Model for decrufting',
   documentationUrl: 'https://example.com/docs/custom-components',
-  shortDescription: 'Model component node',
+  shortDescription: 'Model for cleaning your text',
   generateNode: () => ({
     name: 'myCruftModel',
     content: {cruft_models:[]},

@@ -8,6 +8,8 @@ import { NodeKind } from './specification-types';
 import { switchSpecification } from './switch.specification';
 import {modelComponentSpecification} from "./model-component.specification";
 import {genAiSpecification} from "./generative-ai.specification";
+import {cruft_modelComponentSpecification} from "./cruft-model-component.specification";
+import {visionModelSpecification} from "./vision-model.specification";
 
 function makeNodeSpecification<T extends Record<NodeKind, V>, V extends NodeSpecification>(o: T): Readonly<T> {
   return o;
@@ -22,4 +24,7 @@ export const nodeSpecification = makeNodeSpecification({
   [NodeKind.Switch]: switchSpecification,
   [NodeKind.Model]: modelComponentSpecification,
   [NodeKind.GenAI]: genAiSpecification,
+  [NodeKind.CruftModel]: cruft_modelComponentSpecification,
+  [NodeKind.VisualModel]: visionModelSpecification,
+
 });
