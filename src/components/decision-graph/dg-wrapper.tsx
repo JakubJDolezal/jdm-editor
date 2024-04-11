@@ -80,7 +80,6 @@ const TabContents: React.FC = React.memo(() => {
           {node?.type === 'visualModelNode' && <TabVisionModel id={node.id} manager={dndManager} />}
           {node?.type === 'cruftModelNode' && <TabCruftModel id={node.id} manager={dndManager} />}
           {node?.type === 'functionNode' && <TabFunction id={node.id} />}
-
         </div>
       ))}
     </div>

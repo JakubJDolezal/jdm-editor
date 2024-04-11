@@ -29,7 +29,7 @@ export const ModelItem: React.FC<ModelItemProps> = ({ model, index }) => {
 
 
   useEffect(() => {
-    fetch('/api/model-data/')
+    fetch('http://localhost:8000/api/model-data/')
       .then(response => response.json())
       .then((data: ApiResponse) => setApiResponse(data))
       .catch(error => {

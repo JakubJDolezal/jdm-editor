@@ -66228,7 +66228,7 @@ const qne = () => U.useContext(Ob), Zne = ({
     })
   );
   De(() => {
-    fetch("/api/model-data/").then((E) => E.json()).then((E) => a(E)).catch((E) => {
+    fetch("http://localhost:8000/api/model-data/").then((E) => E.json()).then((E) => a(E)).catch((E) => {
       console.error("Error fetching model data:", E), a({
         model_names: ["Model1", "Model2"],
         allowed_categories: {
