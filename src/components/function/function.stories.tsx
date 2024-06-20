@@ -39,6 +39,7 @@ const meta: Meta<typeof Function> = {
    * to learn how to generate automatic titles
    */
   title: 'Function',
+
   component: Function,
   args: {
     disabled: false,
