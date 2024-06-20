@@ -15,6 +15,10 @@ export type ModelEntry = {
   id: string;
   model_name: string;
   allowed_categories: string[];
+  usage_type: "Whole text"| "Sentences" | "Spans";
+  key: string;
+  url: string;
+
 };
 
 export type ApiResponse = {
@@ -46,6 +50,9 @@ export const createModel = (data: Partial<ModelEntry> = {}): ModelEntry => ({
   id: v4(),
   model_name: '',
   allowed_categories: ['None'],
+  usage_type: 'Whole text',
+  key: "document",
+  url: "http://ai-text-classifier/api/ai/classify_docs",
   ...data,
 });
 

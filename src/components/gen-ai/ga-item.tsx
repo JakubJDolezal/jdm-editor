@@ -1,6 +1,6 @@
 import { DeleteOutlined, MenuOutlined } from '@ant-design/icons';
 import type { Row } from '@tanstack/react-table';
-import { Button, Input, Popconfirm } from 'antd';
+import { Button, Popconfirm } from 'antd';
 import clsx from 'clsx';
 import React, { useRef } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
@@ -86,17 +86,47 @@ export const GAItem: React.FC<GAItemProps> = ({ ga, index }) => {
         onChange={(e) => {
           const newChoice = e.target.value;
           // Ensure newChoice is one of the allowed types
-          if (newChoice === 'json' || newChoice === 'append') {
+          if (newChoice === 'collection' || newChoice === 'json' || newChoice === 'append') {
             onChange({ ...ga, choice: newChoice });
           }
         }}
         disabled={disabled}
       >
+        <option value="collection">JSON</option>
         <option value="json">JSON</option>
         <option value="append">Append</option>
       </select>
       </div>
-
+      <div>
+        <AutosizeTextArea
+          placeholder='La Plateforme'
+          maxRows={1}
+          disabled={!configurable || disabled}
+          value={ga?.platform}
+          onChange={(e) => onChange({ platform: e.target.value })}
+          autoComplete='off'
+        />
+      </div>
+      <div>
+        <AutosizeTextArea
+          placeholder='content'
+          maxRows={1}
+          disabled={!configurable || disabled}
+          value={ga?.location}
+          onChange={(e) => onChange({ location: e.target.value })}
+          autoComplete='off'
+        />
+      </div>
+      <div>
+        <AutosizeTextArea
+          placeholder='mistral-large-latest'
+          maxRows={1}
+          disabled={!configurable || disabled}
+          value={ga?.model}
+          onChange={(e) => onChange({ model: e.target.value })}
+          autoComplete='off'
+        />
+      </div>
 
       <div>
         <Popconfirm

@@ -7,6 +7,7 @@ import { useDrag, useDrop } from 'react-dnd';
 
 import type { ModelEntry, ApiResponse } from './context/model-store.context';
 import { useModelStore } from './context/model-store.context';
+import {AutosizeTextArea} from "../autosize-text-area";
 
 export type ModelItemProps = {
   model: ModelEntry;
@@ -40,7 +41,7 @@ export const ModelItem: React.FC<ModelItemProps> = ({ model, index }) => {
           allowed_categories: {
             "Model1": ["category1", "category2"],
             "Model2": ["category3", "category4"]
-          }
+          },
         };
         setApiResponse(defaultData);
       });
@@ -128,6 +129,46 @@ export const ModelItem: React.FC<ModelItemProps> = ({ model, index }) => {
             {category}
           </Button>
         ))}
+      </div>
+      <div>
+        {/* Model selection dropdown */}
+        <div>
+          <select
+          value={model?.usage_type}
+          onChange={(e) => {
+            const newChoice = e.target.value;
+            // Ensure newChoice is one of the allowed types
+            if (newChoice === 'Whole text' || newChoice === 'Sentences'|| newChoice === 'Spans') {
+              onChange({ ...model, usage_type: newChoice });
+            }
+          }}
+          disabled={disabled}
+        >
+          <option value="Whole text">JSON</option>
+          <option value="Sentences">Append</option>
+          <option value="Spans">Append</option>
+        </select>
+        </div>
+      </div>
+      <div>
+        <AutosizeTextArea
+          placeholder='http://ai-text-classifier/api/ai/classify_docs'
+          maxRows={2}
+          disabled={!configurable || disabled}
+          value={model?.url}
+          onChange={(e) => onChange({ url: e.target.value })}
+          autoComplete='off'
+        />
+      </div>
+      <div>
+        <AutosizeTextArea
+          placeholder='document'
+          maxRows={1}
+          disabled={!configurable || disabled}
+          value={model?.key}
+          onChange={(e) => onChange({ key: e.target.value })}
+          autoComplete='off'
+        />
       </div>
       <div>
         <Popconfirm

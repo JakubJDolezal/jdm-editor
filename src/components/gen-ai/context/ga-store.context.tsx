@@ -14,7 +14,13 @@ const GAStoreContext = React.createContext<
 export type GAEntry = {
   id: string;
   prompt: string;
-  choice: 'json' | 'append' | 'multi-level json';
+  choice: 'json' | 'append' | 'collection';
+  name: string;
+  linked: string;
+  model : string;
+  platform : string;
+  location: string;
+
 };
 
 export type GAStore = {
@@ -39,7 +45,12 @@ type GAStoreProviderProps = {
 export const createGA = (data: Partial<GAEntry> = {}): GAEntry => ({
   id: v4(),
   prompt: '',
-  choice: 'json',
+  choice: 'collection',
+  name: '',
+  linked: '',
+  model : "mistral-large-latest",
+  platform : "La Plateforme",
+  location: "content",
   ...data,
 });
 

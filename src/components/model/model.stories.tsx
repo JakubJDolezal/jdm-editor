@@ -5,7 +5,9 @@ import type { ModelEntry } from './context/model-store.context';
 import { Model } from './Model';
 
 const modelDefault: ModelEntry[] = [
-  { id: '1', model_name: 'GenericIntent', allowed_categories: ['Query'] },
+    { id: '1', model_name: 'GenericIntent', allowed_categories: ['Query'] , usage_type:'Spans',
+      key: "document",
+      url: "http://ai-text-classifier/api/ai/classify_docs"},
 ];
 
 const meta: Meta<typeof Model> = {

@@ -29,17 +29,16 @@ export const CruftModelItem: React.FC<CruftModelItemProps> = ({ cruft_model, ind
 
 
   useEffect(() => {
-    fetch('/api/cruft_model-data/')
+    fetch('http://localhost:8000/api/model-data/')
       .then(response => response.json())
       .then((data: ApiResponse) => setApiResponse(data))
       .catch(error => {
         console.error('Error fetching cruft_model data:', error);
         // Default data to use if fetch fails
         const defaultData: ApiResponse = {
-          cruft_model_names: ["CruftModel1", "CruftModel2"],
+          cruft_model_names: ["CruftModel1"],
           allowed_categories: {
-            "CruftModel1": ["category1", "category2"],
-            "CruftModel2": ["category3", "category4"]
+            "CruftModel1": [   "Other", "Name", "Junk", "Email address", "Location", "Url", "Time", "Not Junk", "Disclaimer", "Email Signature"],
           }
         };
         setApiResponse(defaultData);

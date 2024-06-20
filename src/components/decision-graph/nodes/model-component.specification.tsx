@@ -13,6 +13,9 @@ export type ModelComponent = {
   id?: string;
   modelName?: string;
   allowed_categories: string[];
+  usage_type: "Whole text"| "Sentences" | "Spans";
+  key: string;
+  url: string;
 };
 
 export type NodeModelComponentData = {
@@ -26,7 +29,7 @@ export const modelComponentSpecification: NodeSpecification<NodeModelComponentDa
     <HighlightOutlined />
     <RobotOutlined />
   </>,
-  displayName: 'Custom Component',
+  displayName: 'Classification Model Component',
   documentationUrl: 'https://example.com/docs/custom-components',
   shortDescription: 'Model component node',
   generateNode: () => ({

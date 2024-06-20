@@ -5,8 +5,14 @@ import type { GAEntry } from './context/ga-store.context';
 import { GA } from './GA';
 
 const gaDefault: GAEntry[] = [
-  { id: '1', prompt: 'Given the following categories generate a json of those that the following emails touches upon. ', choice: 'json' },
-  { id: '2', prompt: 'Generate a summary for the following email', choice: 'append' },
+  { id: '1', prompt: 'Given the following categories generate a json of those that the following emails touches upon. ',
+    choice: 'json', name:"Test1", linked:'Test1',   model : "mistral-large-latest",
+    platform : "La Plateforme",
+    location: "content", },
+  { id: '2', prompt: 'Generate a summary for the following email',
+    choice: 'collection', name:"Test2", linked:'Test2',  model : "mistral-large-latest",
+    platform : "La Plateforme",
+    location: "content", },
 ];
 
 const meta: Meta<typeof GA> = {

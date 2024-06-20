@@ -15,6 +15,11 @@ export type GAEntry = {
   id: string;
   prompt: string;
   choice: 'json' | 'append' | 'multi-level json';
+  name: string;
+  linked: string;
+  model : string;
+  platform : string;
+  location: string;
 };
 
 export const genAiSpecification: NodeSpecification<NodeGenAIData> = {
