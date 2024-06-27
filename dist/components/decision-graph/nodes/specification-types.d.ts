@@ -1,7 +1,8 @@
-import type React from 'react';
-import type { NodeProps } from 'reactflow';
-import type { DecisionNode } from '../context/dg-store.context';
-import type { DecisionNodeProps } from './decision-node';
+import { default as React } from 'react';
+import { NodeProps } from 'reactflow';
+import { DecisionNode } from '../context/dg-store.context';
+import { DecisionNodeProps } from './decision-node';
+
 export declare enum NodeKind {
     Input = "inputNode",
     Output = "outputNode",

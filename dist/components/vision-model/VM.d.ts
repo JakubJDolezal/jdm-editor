@@ -1,7 +1,7 @@
-import type { DragDropManager } from 'dnd-core';
-import React from 'react';
-import type { VMControllerProps } from './vm-controller';
-import './vm.scss';
+import { DragDropManager } from 'dnd-core';
+import { default as React } from 'react';
+import { VMControllerProps } from './vm-controller';
+
 export type vmProps = {
     manager?: DragDropManager;
 } & VMControllerProps;

@@ -1,7 +1,7 @@
-import type { DragDropManager } from 'dnd-core';
-import React from 'react';
-import type { ExpressionControllerProps } from './expression-controller';
-import './expression.scss';
+import { DragDropManager } from 'dnd-core';
+import { default as React } from 'react';
+import { ExpressionControllerProps } from './expression-controller';
+
 export type ExpressionProps = {
     manager?: DragDropManager;
 } & ExpressionControllerProps;

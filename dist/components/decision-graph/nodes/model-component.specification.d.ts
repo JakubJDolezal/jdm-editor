@@ -1,8 +1,12 @@
-import type { NodeSpecification } from './specification-types';
+import { NodeSpecification } from './specification-types';
+
 export type ModelComponent = {
     id?: string;
     modelName?: string;
     allowed_categories: string[];
+    usage_type: "Whole text" | "Sentences" | "Spans";
+    key: string;
+    url: string;
 };
 export type NodeModelComponentData = {
     models?: ModelComponent[];

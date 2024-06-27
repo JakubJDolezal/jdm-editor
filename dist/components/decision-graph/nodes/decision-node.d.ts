@@ -1,6 +1,6 @@
-import { type MenuProps } from 'antd';
-import React from 'react';
-import './decision-node.scss';
+import { MenuProps } from 'antd';
+import { default as React } from 'react';
+
 export type DecisionNodeProps = {
     name?: string;
     icon: React.ReactNode;

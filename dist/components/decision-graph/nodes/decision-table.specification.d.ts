@@ -1,4 +1,5 @@
-import type { NodeSpecification } from './specification-types';
+import { NodeSpecification } from './specification-types';
+
 export type DecisionTableInput = {
     id?: string;
     name?: string;

@@ -1,5 +1,6 @@
-import React from 'react';
-import type { SimulationTrace, SimulationTraceDataFunction } from '../decision-graph/types/simulation.types';
+import { default as React } from 'react';
+import { SimulationTrace, SimulationTraceDataFunction } from '../decision-graph/types/simulation.types';
+
 export type FunctionDebuggerProps = {
     trace?: SimulationTrace<SimulationTraceDataFunction>;
 };

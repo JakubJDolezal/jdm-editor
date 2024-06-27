@@ -1,7 +1,6 @@
-import React from 'react';
-import type { SimulationTrace, SimulationTraceDataFunction } from '../decision-graph/types/simulation.types';
-import './function.scss';
-import './monaco';
+import { default as React } from 'react';
+import { SimulationTrace, SimulationTraceDataFunction } from '../decision-graph/types/simulation.types';
+
 export type FunctionProps = {
     disabled?: boolean;
     defaultValue?: string;

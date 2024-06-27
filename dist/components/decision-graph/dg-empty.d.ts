@@ -1,6 +1,7 @@
-import type React from 'react';
-import { type DecisionGraphStoreType, type DecisionGraphType } from './context/dg-store.context';
-import type { NodeSpecification } from './nodes/specification-types';
+import { default as React } from 'react';
+import { DecisionGraphStoreType, DecisionGraphType } from './context/dg-store.context';
+import { NodeSpecification } from './nodes/specification-types';
+
 export type DecisionGraphEmptyType = {
     id?: string;
     defaultValue?: DecisionGraphType;

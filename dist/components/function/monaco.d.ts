@@ -1,4 +1,5 @@
-import type { Monaco } from '@monaco-editor/react';
+import { Monaco } from '@monaco-editor/react';
+
 declare global {
     interface Window {
         monaco?: Monaco;

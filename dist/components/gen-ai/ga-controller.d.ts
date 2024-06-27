@@ -1,5 +1,6 @@
-import type React from 'react';
-import type { GAEntry } from './context/ga-store.context';
+import { default as React } from 'react';
+import { GAEntry } from './context/ga-store.context';
+
 export type GAControllerProps = {
     configurable?: boolean;
     disabled?: boolean;

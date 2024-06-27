@@ -1,9 +1,13 @@
-import React from 'react';
-import type { StoreApi } from 'zustand';
+import { default as React } from 'react';
+import { StoreApi } from 'zustand';
+
 export type ModelEntry = {
     id: string;
     model_name: string;
     allowed_categories: string[];
+    usage_type: "Whole text" | "Sentences" | "Spans";
+    key: string;
+    url: string;
 };
 export type ApiResponse = {
     model_names: string[];

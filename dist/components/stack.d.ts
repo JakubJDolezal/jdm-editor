@@ -1,4 +1,5 @@
-import React from 'react';
+import { default as React } from 'react';
+
 export type StackAlignment = 'start' | 'end' | 'center' | 'space-between' | 'space-around' | 'space-evenly' | 'baseline' | 'stretch';
 export type StackProps = {
     horizontal?: boolean;

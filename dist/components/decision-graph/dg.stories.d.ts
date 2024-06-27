@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { DecisionGraph } from './dg';
+
 declare const meta: Meta<typeof DecisionGraph>;
 export default meta;
 type Story = StoryObj<typeof DecisionGraph>;

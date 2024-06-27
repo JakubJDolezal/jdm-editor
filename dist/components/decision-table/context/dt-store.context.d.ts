@@ -1,7 +1,8 @@
-import React from 'react';
-import type { StoreApi, UseBoundStore } from 'zustand';
-import type { SchemaSelectProps } from '../../../helpers/components';
-import type { TableCellProps } from '../table/table-default-cell';
+import { default as React } from 'react';
+import { StoreApi, UseBoundStore } from 'zustand';
+import { SchemaSelectProps } from '../../../helpers/components';
+import { TableCellProps } from '../table/table-default-cell';
+
 export type TableExportOptions = {
     name?: string;
 };

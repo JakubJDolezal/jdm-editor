@@ -1,5 +1,6 @@
-import React from 'react';
-import type { StoreApi } from 'zustand';
+import { default as React } from 'react';
+import { StoreApi } from 'zustand';
+
 export type VMEntry = {
     id: string;
     model_name: string;

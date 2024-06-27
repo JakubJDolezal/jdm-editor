@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { GA } from './GA';
+
 declare const meta: Meta<typeof GA>;
 export default meta;
 type Story = StoryObj<typeof GA>;

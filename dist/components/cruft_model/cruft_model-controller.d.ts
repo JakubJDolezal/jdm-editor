@@ -1,5 +1,6 @@
-import type React from 'react';
-import type { CruftModelEntry } from './context/cruft_model-store.context';
+import { default as React } from 'react';
+import { CruftModelEntry } from './context/cruft_model-store.context';
+
 export type CruftModelControllerProps = {
     configurable?: boolean;
     disabled?: boolean;

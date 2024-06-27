@@ -1,5 +1,6 @@
-import type React from 'react';
-import type { VMEntry } from './context/vm-store.context';
+import { default as React } from 'react';
+import { VMEntry } from './context/vm-store.context';
+
 export type VMControllerProps = {
     configurable?: boolean;
     disabled?: boolean;

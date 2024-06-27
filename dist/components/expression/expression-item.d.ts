@@ -1,5 +1,6 @@
-import React from 'react';
-import type { ExpressionEntry } from './context/expression-store.context';
+import { default as React } from 'react';
+import { ExpressionEntry } from './context/expression-store.context';
+
 export type ExpressionItemProps = {
     expression: ExpressionEntry;
     index: number;

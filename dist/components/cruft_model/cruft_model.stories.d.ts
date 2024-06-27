@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { CruftModel } from './CruftModel';
+
 declare const meta: Meta<typeof CruftModel>;
 export default meta;
 type Story = StoryObj<typeof CruftModel>;

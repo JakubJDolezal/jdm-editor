@@ -1,4 +1,5 @@
-import React from 'react';
+import { default as React } from 'react';
+
 export type FunctionDebuggerLogProps = {
     lines: string[];
     msSinceRun: number;

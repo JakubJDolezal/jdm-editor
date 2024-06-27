@@ -1,7 +1,7 @@
-import type { DragDropManager } from 'dnd-core';
-import React from 'react';
-import type { GAControllerProps } from './ga-controller';
-import './ga.scss';
+import { DragDropManager } from 'dnd-core';
+import { default as React } from 'react';
+import { GAControllerProps } from './ga-controller';
+
 export type gaProps = {
     manager?: DragDropManager;
 } & GAControllerProps;

@@ -1,10 +1,11 @@
-import type { WritableDraft } from 'immer/src/types/types-external';
-import React, { type MutableRefObject } from 'react';
-import type { EdgeChange, NodeChange, ReactFlowInstance, useEdgesState, useNodesState } from 'reactflow';
-import type { StoreApi, UseBoundStore } from 'zustand';
-import type { useGraphClipboard } from '../hooks/use-graph-clipboard';
-import { type NodeSpecification } from '../nodes/specification-types';
-import type { Simulation } from '../types/simulation.types';
+import { WritableDraft } from 'immer/src/types/types-external';
+import { default as React, MutableRefObject } from 'react';
+import { EdgeChange, NodeChange, ReactFlowInstance, useEdgesState, useNodesState } from 'reactflow';
+import { StoreApi, UseBoundStore } from 'zustand';
+import { useGraphClipboard } from '../hooks/use-graph-clipboard';
+import { NodeSpecification } from '../nodes/specification-types';
+import { Simulation } from '../types/simulation.types';
+
 export type Position = {
     x: number;
     y: number;
@@ -126,10 +127,10 @@ export declare function useDecisionGraphRaw(): {
         onReactFlowInit?: ((instance: ReactFlowInstance) => void) | undefined;
     }>;
     referenceStore: ExposedStore<{
-        nodesState: React.MutableRefObject<[import("reactflow").Node<unknown, string | undefined>[], React.Dispatch<React.SetStateAction<import("reactflow").Node<unknown, string | undefined>[]>>, (changes: NodeChange[]) => void]>;
-        edgesState: React.MutableRefObject<[import("reactflow").Edge<unknown>[], React.Dispatch<React.SetStateAction<import("reactflow").Edge<unknown>[]>>, (changes: EdgeChange[]) => void]>;
+        nodesState: React.MutableRefObject<[import('reactflow').Node<unknown, string | undefined>[], React.Dispatch<React.SetStateAction<import('reactflow').Node<unknown, string | undefined>[]>>, (changes: NodeChange[]) => void]>;
+        edgesState: React.MutableRefObject<[import('reactflow').Edge<unknown>[], React.Dispatch<React.SetStateAction<import('reactflow').Edge<unknown>[]>>, (changes: EdgeChange[]) => void]>;
         graphClipboard: React.MutableRefObject<{
-            copyNodes: (nodes: import("reactflow").Node[]) => Promise<void>;
+            copyNodes: (nodes: import('reactflow').Node[]) => Promise<void>;
             pasteNodes: () => Promise<void>;
         }>;
     }>;

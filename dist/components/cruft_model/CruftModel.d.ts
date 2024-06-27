@@ -1,7 +1,7 @@
-import type { DragDropManager } from 'dnd-core';
-import React from 'react';
-import type { CruftModelControllerProps } from './cruft_model-controller';
-import './cruft_model.scss';
+import { DragDropManager } from 'dnd-core';
+import { default as React } from 'react';
+import { CruftModelControllerProps } from './cruft_model-controller';
+
 export type cruft_modelProps = {
     manager?: DragDropManager;
 } & CruftModelControllerProps;

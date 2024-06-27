@@ -1,9 +1,13 @@
-import React from 'react';
-import type { StoreApi } from 'zustand';
+import { default as React } from 'react';
+import { StoreApi } from 'zustand';
+
 export type CruftModelEntry = {
     id: string;
     cruft_model_name: string;
     cruft_categories: string[];
+    cruft_url: string;
+    source: string;
+    target: string;
 };
 export type ApiResponse = {
     cruft_model_names: string[];

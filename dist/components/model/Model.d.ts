@@ -1,7 +1,7 @@
-import type { DragDropManager } from 'dnd-core';
-import React from 'react';
-import type { ModelControllerProps } from './model-controller';
-import './model.scss';
+import { DragDropManager } from 'dnd-core';
+import { default as React } from 'react';
+import { ModelControllerProps } from './model-controller';
+
 export type modelProps = {
     manager?: DragDropManager;
 } & ModelControllerProps;

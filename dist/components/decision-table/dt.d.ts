@@ -1,8 +1,8 @@
-import type { DragDropManager } from 'dnd-core';
-import React from 'react';
-import type { DecisionTableContextProps } from './context/dt-store.context';
-import type { DecisionTableEmptyType } from './dt-empty';
-import './dt.scss';
+import { DragDropManager } from 'dnd-core';
+import { default as React } from 'react';
+import { DecisionTableContextProps } from './context/dt-store.context';
+import { DecisionTableEmptyType } from './dt-empty';
+
 export type DecisionTableProps = {
     tableHeight: string | number;
     mountDialogsOnBody?: boolean;

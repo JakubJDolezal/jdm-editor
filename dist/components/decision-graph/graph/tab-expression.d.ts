@@ -1,5 +1,6 @@
-import type { DragDropManager } from 'dnd-core';
-import React from 'react';
+import { DragDropManager } from 'dnd-core';
+import { default as React } from 'react';
+
 export type TabExpressionProps = {
     id: string;
     manager?: DragDropManager;

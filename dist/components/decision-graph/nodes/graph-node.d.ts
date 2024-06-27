@@ -1,7 +1,8 @@
-import React from 'react';
-import type { HandleProps } from 'reactflow';
-import type { DecisionNodeProps } from './decision-node';
-import type { MinimalNodeSpecification } from './specification-types';
+import { default as React } from 'react';
+import { HandleProps } from 'reactflow';
+import { DecisionNodeProps } from './decision-node';
+import { MinimalNodeSpecification } from './specification-types';
+
 export type GraphNodeProps = {
     id: string;
     handleLeft?: boolean | Partial<HandleProps>;

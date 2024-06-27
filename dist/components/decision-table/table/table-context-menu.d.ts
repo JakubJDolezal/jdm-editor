@@ -1,4 +1,5 @@
-import React from 'react';
+import { default as React } from 'react';
+
 export declare const TableContextMenu: React.NamedExoticComponent<{
     children?: React.ReactNode;
 }>;

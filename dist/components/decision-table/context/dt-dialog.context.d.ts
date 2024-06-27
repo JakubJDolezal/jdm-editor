@@ -1,5 +1,6 @@
-import React from 'react';
-import type { ColumnType, TableSchemaItem } from './dt-store.context';
+import { default as React } from 'react';
+import { ColumnType, TableSchemaItem } from './dt-store.context';
+
 export type TableDialogType = 'add' | 'reorder' | 'edit';
 export type TableDialogState = {
     type: TableDialogType;

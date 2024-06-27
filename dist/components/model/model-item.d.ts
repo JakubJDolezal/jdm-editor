@@ -1,5 +1,6 @@
-import React from 'react';
-import type { ModelEntry } from './context/model-store.context';
+import { default as React } from 'react';
+import { ModelEntry } from './context/model-store.context';
+
 export type ModelItemProps = {
     model: ModelEntry;
     index: number;

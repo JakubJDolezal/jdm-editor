@@ -1,5 +1,6 @@
-import type { ThemeConfig as AntThemeConfig } from 'antd';
-import React from 'react';
+import { ThemeConfig as AntThemeConfig } from 'antd';
+import { default as React } from 'react';
+
 declare module 'antd/es/theme/interface/alias' {
     interface AliasToken {
         mode: 'dark' | 'light';

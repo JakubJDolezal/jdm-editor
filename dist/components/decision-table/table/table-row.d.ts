@@ -1,5 +1,6 @@
-import type { Row } from '@tanstack/react-table';
-import React from 'react';
+import { Row } from '@tanstack/react-table';
+import { default as React } from 'react';
+
 export declare const TableRow: React.FC<{
     index: number;
     row: Row<Record<string, string>>;

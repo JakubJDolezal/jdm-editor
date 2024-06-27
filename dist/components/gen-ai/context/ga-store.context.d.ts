@@ -1,14 +1,15 @@
-import * as React from 'react';
-import type { StoreApi } from 'zustand';
+import { default as React } from 'react';
+import { StoreApi } from 'zustand';
+
 export type GAEntry = {
     id: string;
     prompt: string;
     choice: 'json' | 'append' | 'collection';
     name: string;
     linked: string;
-    model : string,
-    platform : string,
-    location: string,
+    model: string;
+    platform: string;
+    location: string;
 };
 export type GAStore = {
     configurable: boolean;

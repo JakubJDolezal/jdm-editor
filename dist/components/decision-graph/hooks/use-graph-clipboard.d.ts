@@ -1,5 +1,6 @@
-import { type RefObject } from 'react';
-import type { Node, ReactFlowInstance } from 'reactflow';
+import { RefObject } from 'react';
+import { Node, ReactFlowInstance } from 'reactflow';
+
 export declare const useGraphClipboard: (reactFlow: RefObject<ReactFlowInstance | null>, wrapper: RefObject<HTMLDivElement | null>) => {
     copyNodes: (nodes: Node[]) => Promise<void>;
     pasteNodes: () => Promise<void>;
