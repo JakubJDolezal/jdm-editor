@@ -15,6 +15,9 @@ export type CruftModelEntry = {
   id: string;
   cruft_model_name: string;
   cruft_categories: string[];
+  cruft_url: string;
+  source:string,
+  target:string,
 };
 
 export type ApiResponse = {
@@ -46,6 +49,9 @@ export const createCruftModel = (data: Partial<CruftModelEntry> = {}): CruftMode
   id: v4(),
   cruft_model_name: '',
   cruft_categories: ['None'],
+  cruft_url: 'http://ai-transformerfilter/api/ai/filter',
+  source:'document.content',
+  target:'document.content',
   ...data,
 });
 

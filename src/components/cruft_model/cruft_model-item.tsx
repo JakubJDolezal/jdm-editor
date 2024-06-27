@@ -7,6 +7,7 @@ import { useDrag, useDrop } from 'react-dnd';
 
 import type { CruftModelEntry, ApiResponse } from './context/cruft_model-store.context';
 import { useCruftModelStore } from './context/cruft_model-store.context';
+import {AutosizeTextArea} from "../autosize-text-area";
 
 export type CruftModelItemProps = {
   cruft_model: CruftModelEntry;
@@ -127,6 +128,36 @@ export const CruftModelItem: React.FC<CruftModelItemProps> = ({ cruft_model, ind
             {category}
           </Button>
         ))}
+      </div>
+      <div>
+        <AutosizeTextArea
+          placeholder='http://ai-text-classifier/api/ai/classify_docs'
+          maxRows={2}
+          disabled={!configurable || disabled}
+          value={cruft_model?.cruft_url}
+          onChange={(e) => onChange({ cruft_url: e.target.value })}
+          autoComplete='off'
+        />
+      </div>
+      <div>
+        <AutosizeTextArea
+          placeholder='document.content'
+          maxRows={2}
+          disabled={!configurable || disabled}
+          value={cruft_model?.source}
+          onChange={(e) => onChange({ source: e.target.value })}
+          autoComplete='off'
+        />
+      </div>
+      <div>
+        <AutosizeTextArea
+          placeholder='document.content'
+          maxRows={2}
+          disabled={!configurable || disabled}
+          value={cruft_model?.target}
+          onChange={(e) => onChange({ target: e.target.value })}
+          autoComplete='off'
+        />
       </div>
       <div>
         <Popconfirm

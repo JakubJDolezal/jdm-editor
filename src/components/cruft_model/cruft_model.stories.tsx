@@ -5,7 +5,8 @@ import type { CruftModelEntry } from './context/cruft_model-store.context';
 import { CruftModel } from './CruftModel';
 
 const cruft_modelDefault: CruftModelEntry[] = [
-  { id: '1', cruft_model_name: 'GenericIntent', cruft_categories: ['Query'] },
+  { id: '1', cruft_model_name: 'GenericIntent', cruft_categories: ['Query'], cruft_url: 'http://ai-transformerfilter/api/ai/filter',   source:'document.content',
+  target:'document.content'},
 ];
 
 const meta: Meta<typeof CruftModel> = {

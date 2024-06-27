@@ -13,6 +13,9 @@ export type CruftModelComponent = {
   id?: string;
   modelName?: string;
   cruft_categories: string[];
+  cruft_url: string,
+  source:string,
+  target:string,
 };
 
 export type NodeCruftModelComponentData = {
