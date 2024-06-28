@@ -7,13 +7,13 @@ export declare enum NodeKind {
     Input = "inputNode",
     Output = "outputNode",
     DecisionTable = "decisionTableNode",
-    Function = "functionNode",
     Expression = "expressionNode",
     Switch = "switchNode",
     Model = "modelNode",
     CruftModel = "cruftModelNode",
     GenAI = "genAINode",
-    VisualModel = "visualModelNode"
+    VisualModel = "visualModelNode",
+    PFunction = "pythonFunctionNode"
 }
 export type MinimalNodeProps = Pick<NodeProps, 'id' | 'data' | 'selected'>;
 export type MinimalNodeSpecification = Pick<NodeSpecification, 'color' | 'icon' | 'displayName' | 'documentationUrl'>;
