@@ -1,7 +1,7 @@
 import type { DragDropManager } from 'dnd-core';
 import React from 'react';
 
-import { PF } from '../../python-function/PF';
+import { PF } from '../../python-function';
 import { useDecisionGraphActions, useDecisionGraphState } from '../context/dg-store.context';
 
 export type TabPFProps = {
@@ -20,10 +20,10 @@ export const TabPythonFunction: React.FC<TabPFProps> = ({ id, manager }) => {
   return (
     <div style={{ maxWidth: 1200, height: '100%', overflowY: 'auto', boxSizing: 'border-box', paddingBottom: '1.5rem' }}>
       <PF
-        value={content?.gas}
+        value={content?.pfs}
         onChange={(val) => {
           graphActions.updateNode(id, (draft) => {
-            draft.content.gas = val;
+            draft.content.pfs = val;
             return draft;
           });
         }}
