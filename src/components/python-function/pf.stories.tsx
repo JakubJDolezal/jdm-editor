@@ -1,25 +1,24 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 
-import type { CruftModelEntry } from './context/cruft_model-store.context';
-import { CruftModel } from './CruftModel';
+import type { PFEntry } from './context/pf-store.context';
+import { PF } from './PF';
 
-const cruft_modelDefault: CruftModelEntry[] = [
-  { id: '1', cruft_model_name: 'GenericIntent', cruft_categories: ['Query'], cruft_url: 'http://ai-transformerfilter/api/ai/filter',   source:'document.content',
-  target:'document.content'},
+const pfDefault: PFEntry[] = [
+  { id: '1', location: "content", func:'bar', module:'foo' },
 ];
 
-const meta: Meta<typeof CruftModel> = {
+const meta: Meta<typeof PF> = {
   /* 👇 The title prop is optional.
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
-  title: 'CruftModel',
-  component: CruftModel,
+  title: 'PF',
+  component: PF,
   args: {
     configurable: true,
     disabled: false,
-    defaultValue: cruft_modelDefault,
+    defaultValue: pfDefault,
   },
   argTypes: {
     manager: { table: { disable: true } },
@@ -29,7 +28,7 @@ const meta: Meta<typeof CruftModel> = {
 
 export default meta;
 
-type Story = StoryObj<typeof CruftModel>;
+type Story = StoryObj<typeof PF>;
 
 const StoryWrapper: React.FC<React.PropsWithChildren<any>> = ({ children }) => (
   <div style={{ maxWidth: 1200 }}>{children}</div>
@@ -39,7 +38,7 @@ export const Uncontrolled: Story = {
   render: (args) => {
     return (
       <StoryWrapper>
-        <CruftModel {...args} />
+        <PF {...args} />
       </StoryWrapper>
     );
   },
@@ -47,11 +46,11 @@ export const Uncontrolled: Story = {
 
 export const Controlled: Story = {
   render: (args) => {
-    const [value, setValue] = useState(cruft_modelDefault);
+    const [value, setValue] = useState(pfDefault);
 
     return (
       <StoryWrapper>
-        <CruftModel value={value} onChange={setValue} {...args} />
+        <PF value={value} onChange={setValue} {...args} />
       </StoryWrapper>
     );
   },

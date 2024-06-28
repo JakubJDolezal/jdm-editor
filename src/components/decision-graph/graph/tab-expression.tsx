@@ -18,7 +18,7 @@ export const TabExpression: React.FC<TabExpressionProps> = ({ id, manager }) => 
   }));
 
   return (
-    <div style={{ maxWidth: 900, height: '100%', overflowY: 'auto', boxSizing: 'border-box', paddingBottom: '1.5rem' }}>
+    <div style={{ maxWidth: 1200, height: '100%', overflowY: 'auto', boxSizing: 'border-box', paddingBottom: '1.5rem' }}>
       <Expression
         value={content?.expressions}
         onChange={(val) => {

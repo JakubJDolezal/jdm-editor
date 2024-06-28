@@ -1,15 +1,15 @@
 import type { DragDropManager } from 'dnd-core';
 import React from 'react';
 
-import { Model } from '../../model/Model';
+import { PF } from '../../python-function/PF';
 import { useDecisionGraphActions, useDecisionGraphState } from '../context/dg-store.context';
 
-export type TabModelProps = {
+export type TabPFProps = {
   id: string;
   manager?: DragDropManager;
 };
 
-export const TabVisionModel: React.FC<TabModelProps> = ({ id, manager }) => {
+export const TabPythonFunction: React.FC<TabPFProps> = ({ id, manager }) => {
   const graphActions = useDecisionGraphActions();
   const { disabled, configurable, content } = useDecisionGraphState(({ disabled, configurable, decisionGraph }) => ({
     disabled,
@@ -19,11 +19,11 @@ export const TabVisionModel: React.FC<TabModelProps> = ({ id, manager }) => {
 
   return (
     <div style={{ maxWidth: 1200, height: '100%', overflowY: 'auto', boxSizing: 'border-box', paddingBottom: '1.5rem' }}>
-      <Model
-        value={content?.vms}
+      <PF
+        value={content?.gas}
         onChange={(val) => {
           graphActions.updateNode(id, (draft) => {
-            draft.content.vms = val;
+            draft.content.gas = val;
             return draft;
           });
         }}

@@ -144,9 +144,9 @@ export const ModelItem: React.FC<ModelItemProps> = ({ model, index }) => {
           }}
           disabled={disabled}
         >
-          <option value="Whole text">JSON</option>
-          <option value="Sentences">Append</option>
-          <option value="Spans">Append</option>
+          <option value="Whole text">Whole text</option>
+          <option value="Sentences">Sentences</option>
+          <option value="Spans">Spans</option>
         </select>
         </div>
       </div>

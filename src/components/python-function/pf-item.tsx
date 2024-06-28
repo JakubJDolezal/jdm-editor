@@ -6,17 +6,17 @@ import React, { useRef } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 
 import { AutosizeTextArea } from '../autosize-text-area';
-import type { GAEntry } from './context/ga-store.context';
-import { useGAStore } from './context/ga-store.context';
+import type { PFEntry } from './context/pf-store.context';
+import { usePFStore } from './context/pf-store.context';
 
-export type GAItemProps = {
-  ga: GAEntry;
+export type PFItemProps = {
+  pf: PFEntry;
   index: number;
 };
 
-export const GAItem: React.FC<GAItemProps> = ({ ga, index }) => {
-  const gaRef = useRef<HTMLDivElement>(null);
-  const { updateRow, removeRow, swapRows, disabled, configurable } = useGAStore(
+export const PFItem: React.FC<PFItemProps> = ({ pf, index }) => {
+  const pfRef = useRef<HTMLDivElement>(null);
+  const { updateRow, removeRow, swapRows, disabled, configurable } = usePFStore(
     ({ updateRow, removeRow, swapRows, disabled, configurable }) => ({
       updateRow,
       removeRow,
@@ -26,7 +26,7 @@ export const GAItem: React.FC<GAItemProps> = ({ ga, index }) => {
     }),
   );
 
-  const onChange = (update: Partial<Omit<GAEntry, 'id'>>) => {
+  const onChange = (update: Partial<Omit<PFEntry, 'id'>>) => {
     updateRow(index, update);
   };
 
@@ -47,86 +47,59 @@ export const GAItem: React.FC<GAItemProps> = ({ ga, index }) => {
 
   const [{ isDragging }, dragRef, previewRef] = useDrag({
     canDrag: configurable && !disabled,
-    item: () => ({ ...ga, index }),
+    item: () => ({ ...pf, index }),
     type: 'row',
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),
   });
 
-  previewRef(dropRef(gaRef));
+  previewRef(dropRef(pfRef));
 
   return (
     <div
-      ref={gaRef}
+      ref={pfRef}
       className={clsx(
-        'ga-list-item',
-        'ga-list__item',
+        'pf-list-item',
+        'pf-list__item',
         isDropping && direction === 'down' && 'dropping-down',
         isDropping && direction === 'up' && 'dropping-up',
       )}
       style={{ opacity: !isDragging ? 1 : 0.5 }}
     >
-      <div ref={dragRef} className='ga-list-item__drag' aria-disabled={!configurable || disabled}>
+      <div ref={dragRef} className='pf-list-item__drag' aria-disabled={!configurable || disabled}>
         <MenuOutlined />
       </div>
       <div>
         <AutosizeTextArea
-          placeholder='Input your prompt'
+          placeholder='Enter place to download function from..'
           maxRows={20}
           disabled={!configurable || disabled}
-          value={ga?.prompt}
-          onChange={(e) => onChange({ prompt: e.target.value })}
-          autoComplete='off'
-        />
-      </div>
-      <div>
-        <select
-        value={ga?.choice}
-        onChange={(e) => {
-          const newChoice = e.target.value;
-          // Ensure newChoice is one of the allowed types
-          if (newChoice === 'collection' || newChoice === 'json' || newChoice === 'append') {
-            onChange({ ...ga, choice: newChoice });
-          }
-        }}
-        disabled={disabled}>
-        <option value="collection">Collection</option>
-        <option value="json">Json</option>
-        <option value="append">Append</option>
-      </select>
-      </div>
-      <div>
-        <AutosizeTextArea
-          placeholder='La Plateforme'
-          maxRows={1}
-          disabled={!configurable || disabled}
-          value={ga?.platform}
-          onChange={(e) => onChange({ platform: e.target.value })}
-          autoComplete='off'
-        />
-      </div>
-      <div>
-        <AutosizeTextArea
-          placeholder='content'
-          maxRows={1}
-          disabled={!configurable || disabled}
-          value={ga?.location}
+          value={pf?.location}
           onChange={(e) => onChange({ location: e.target.value })}
           autoComplete='off'
         />
       </div>
       <div>
         <AutosizeTextArea
-          placeholder='mistral-large-latest'
+          placeholder='Determine module..'
           maxRows={1}
           disabled={!configurable || disabled}
-          value={ga?.model}
-          onChange={(e) => onChange({ model: e.target.value })}
+          value={pf?.module}
+          onChange={(e) => onChange({ module: e.target.value })}
           autoComplete='off'
         />
       </div>
-
+      <div>
+        <AutosizeTextArea
+          placeholder='What function to call...'
+          maxRows={1}
+          disabled={!configurable || disabled}
+          value={pf?.func}
+          onChange={(e) => onChange({ func: e.target.value })}
+          autoComplete='off'
+        />
+      </div>
       <div>
         <Popconfirm
           title='Remove selected row?'

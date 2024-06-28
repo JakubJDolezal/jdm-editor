@@ -18,7 +18,7 @@ export const TabModel: React.FC<TabModelProps> = ({ id, manager }) => {
   }));
 
   return (
-    <div style={{ maxWidth: 900, height: '100%', overflowY: 'auto', boxSizing: 'border-box', paddingBottom: '1.5rem' }}>
+    <div style={{ maxWidth: 1200, height: '100%', overflowY: 'auto', boxSizing: 'border-box', paddingBottom: '1.5rem' }}>
       <Model
         value={content?.models}
         onChange={(val) => {

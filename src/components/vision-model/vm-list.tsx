@@ -26,8 +26,8 @@ export const VMList: React.FC<VMListProps> = ({}) => {
     <div className={'vm-list'}>
       <div className={clsx('vm-list__item', 'vm-list__item--heading')}>
         <div />
-        <Typography.Text type='secondary'>Prompts</Typography.Text>
-        <Typography.Text type='secondary'>VM</Typography.Text>
+        <Typography.Text type='secondary'>Model</Typography.Text>
+        <Typography.Text type='secondary'>Page</Typography.Text>
         <div />
       </div>
       {(vms || []).map((vm, index) => (

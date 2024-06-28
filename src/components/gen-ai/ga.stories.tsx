@@ -38,7 +38,7 @@ export default meta;
 type Story = StoryObj<typeof GA>;
 
 const StoryWrapper: React.FC<React.PropsWithChildren<any>> = ({ children }) => (
-  <div style={{ maxWidth: 900 }}>{children}</div>
+  <div style={{ maxWidth: 1200 }}>{children}</div>
 );
 
 export const Uncontrolled: Story = {

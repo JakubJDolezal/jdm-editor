@@ -26,8 +26,11 @@ export const ModelList: React.FC<ModelListProps> = ({}) => {
     <div className={'model-list'}>
       <div className={clsx('model-list__item', 'model-list__item--heading')}>
         <div />
-        <Typography.Text type='secondary'>Prompts</Typography.Text>
         <Typography.Text type='secondary'>Model</Typography.Text>
+        <Typography.Text type='secondary'>Allowed Categories</Typography.Text>
+        <Typography.Text type='secondary'>Used On</Typography.Text>
+        <Typography.Text type='secondary'>Key</Typography.Text>
+        <Typography.Text type='secondary'>Url</Typography.Text>
         <div />
       </div>
       {(models || []).map((model, index) => (
