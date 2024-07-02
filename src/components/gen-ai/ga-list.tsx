@@ -27,7 +27,11 @@ export const GAList: React.FC<GAListProps> = ({}) => {
       <div className={clsx('ga-list__item', 'ga-list__item--heading')}>
         <div />
         <Typography.Text type='secondary'>Prompts</Typography.Text>
-        <Typography.Text type='secondary'>GA</Typography.Text>
+        <Typography.Text type='secondary'>Output</Typography.Text>
+        <Typography.Text type='secondary'>Deployment Platform</Typography.Text>
+        <Typography.Text type='secondary'>Source</Typography.Text>
+        <Typography.Text type='secondary'>Model</Typography.Text>
+
         <div />
       </div>
       {(gas || []).map((ga, index) => (
