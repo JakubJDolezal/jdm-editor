@@ -38,13 +38,13 @@
               {
                 # https://devenv.sh/reference/options/
                 packages = [pkgs.hello];
- languages.javascript = {
-    enable = true;
-    pnpm = {
-      enable = true;
-      install.enable = true;
-    };
-  };
+                languages.javascript = {
+                  enable = true;
+                  pnpm = {
+                    enable = true;
+                    install.enable = true;
+                  };
+                };
                 enterShell = ''
                   hello
                 '';
