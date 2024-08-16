@@ -1,61 +1,52 @@
 {
   inputs = {
-    nixpkgs.url = "github:cachix/devenv-nixpkgs/rolling";
-    systems.url = "github:nix-systems/default";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     devenv.url = "github:cachix/devenv";
-    devenv.inputs.nixpkgs.follows = "nixpkgs";
-    nixpkgs-python.url = "github:cachix/nixpkgs-python";
-    nixpkgs-python.inputs = {nixpkgs.follows = "nixpkgs";};
   };
 
-  nixConfig = {
-    extra-trusted-public-keys = "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=";
-    extra-substituters = "https://devenv.cachix.org";
-  };
-
-  outputs = {
-    self,
+  outputs = inputs @ {
+    flake-parts,
     nixpkgs,
-    devenv,
-    systems,
     ...
-  } @ inputs: let
-    forEachSystem = nixpkgs.lib.genAttrs (import systems);
-  in {
-    packages = forEachSystem (system: {
-      devenv-up = self.devShells.${system}.default.config.procfileScript;
-    });
+  }:
+    flake-parts.lib.mkFlake {inherit inputs;} {
+      imports = [
+        inputs.devenv.flakeModule
+      ];
+      systems = nixpkgs.lib.systems.flakeExposed;
 
-    devShells =
-      forEachSystem
-      (
-        system: let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in {
-          default = devenv.lib.mkShell {
-            inherit inputs pkgs;
-            modules = [
-              {
-                # https://devenv.sh/reference/options/
-                packages = [pkgs.hello];
-                languages.javascript = {
-                  enable = true;
-                  pnpm = {
-                    enable = true;
-                    install.enable = true;
-                  };
-                };
+      perSystem = {
+        config,
+        self',
+        inputs',
+        pkgs,
+        system,
+        ...
+      }: {
+        # Per-system attributes can be defined here. The self' and inputs'
+        # module parameters provide easy access to attributes of the same
+        # system.
 
-                enterShell = ''
-                  hello
-                '';
+        # Equivalent to  inputs'.nixpkgs.legacyPackages.hello;
+        packages.default = pkgs.hello;
+        formatter = pkgs.alejandra;
 
-                processes.storybook.exec = "pnpm storybook";
-              }
-            ];
+        devenv.shells.default = {
+          # https://devenv.sh/reference/options/
+          packages = [pkgs.hello];
+          languages.javascript = {
+            enable = true;
+            pnpm = {
+              enable = true;
+              install.enable = true;
+            };
           };
-        }
-      );
-    formatter = forEachSystem (system: nixpkgs.legacyPackages.${system}.alejandra);
-  };
+          enterShell = ''
+            hello
+          '';
+
+          processes.storybook.exec = "pnpm storybook";
+        };
+      };
+    };
 }
