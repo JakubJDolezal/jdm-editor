@@ -40,7 +40,8 @@ nodejs-granular-v3 = {
     mkdir -p $out/docs 
     cp -r docs $out/
     mkdir -p $out/bin
-    echo '#!/usr/bin/env sh' > $out/bin/consensus-engine
+    echo '#! /usr/bin/env nix-shell' > $out/bin/consensus-engine
+    echo '#! nix-shell -i bash -p http-server' >> $out/bin/consensus-engine
     echo 'http-server $out/docs "$@"' >> $out/bin/consensus-engine
     chmod +x $out/bin/consensus-engine
    '';

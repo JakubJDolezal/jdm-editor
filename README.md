@@ -20,8 +20,9 @@ direnv allow
 ```
 then start the storybook with
 ```bash
-devenv up
+nix run
 ```
+which uses a stack of process-compose -> build-storybook (vite) -> http-server
 ### with npm:
 ```bash
 npm i @gorules/jdm-editor

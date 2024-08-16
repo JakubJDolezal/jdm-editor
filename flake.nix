@@ -12,7 +12,7 @@
   };
 
   outputs = inputs @ {
-    flake-parts,
+      flake-parts,
       nixpkgs,
       process-compose-flake,
       services-flake,
@@ -38,7 +38,7 @@
 # module parameters provide easy access to attributes of the same
 # system.
       packages.nodeapp = dream2nix.lib.evalModules {
-       packageSets.nixpkgs = nixpkgs.legacyPackages.${system};
+       packageSets.nixpkgs = pkgs;
         modules = [
           # Import our actual package definiton as a dream2nix module from ./default.nix
           ./default.nix
@@ -62,9 +62,7 @@
         ];
 
 # Add a pgweb process, that knows how to connect to our northwind db
-        settings.processes.storybook = let
-          pnpm = "${pkgs.corepack}/bin/pnpm";
-        in {command = "${pkgs.bash}/bin/bash -c 'cd $out && ${pnpm} install && ${pnpm} storybook'";};
+        settings.processes.storybook.command = self'.packages.nodeapp;
       };
       devenv.shells.default = {
 # https://devenv.sh/reference/options/
