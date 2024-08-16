@@ -45,11 +45,12 @@
                     install.enable = true;
                   };
                 };
+
                 enterShell = ''
                   hello
                 '';
 
-                processes.hello.exec = "hello";
+                processes.storybook.exec = "pnpm storybook";
               }
             ];
           };

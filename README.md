@@ -9,6 +9,20 @@ Whether you’re a developer, data analyst, or decision model expert, JDM Editor
 > Live demo and usage at https://gorules.github.io/jdm-editor/
 
 ## Installation
+### With Nix (recommended):
+```bash
+nix develop
+```
+
+or if using direnv:
+```bash
+direnv allow
+```
+then start the storybook with
+```bash
+devenv up
+```
+### with npm:
 ```bash
 npm i @gorules/jdm-editor
 ```
