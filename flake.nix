@@ -39,9 +39,9 @@
           ];
 
           # Add a pgweb process, that knows how to connect to our northwind db
-          settings.processes.storybook = {
-            command = "pnpm storybook";
-          };
+          settings.processes.storybook = let
+            pnpm = "${pkgs.corepack}/bin/pnpm";
+          in {command = "${pkgs.bash}/bin/bash -c '${pnpm} install && ${pnpm} storybook'";};
         };
         devenv.shells.default = {
           # https://devenv.sh/reference/options/
