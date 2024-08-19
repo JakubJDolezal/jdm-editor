@@ -12,71 +12,61 @@
   };
 
   outputs = inputs @ {
-      flake-parts,
-      nixpkgs,
-      process-compose-flake,
-      services-flake,
-      dream2nix,
-      gitignore,
-      ...
+    flake-parts,
+    nixpkgs,
+    process-compose-flake,
+    services-flake,
+    dream2nix,
+    gitignore,
+    ...
   }:
-  flake-parts.lib.mkFlake {inherit inputs;} {
-    imports = [
-      inputs.devenv.flakeModule
+    flake-parts.lib.mkFlake {inherit inputs;} {
+      imports = [
+        inputs.devenv.flakeModule
         process-compose-flake.flakeModule
-    ];
-    systems = nixpkgs.lib.systems.flakeExposed;
-    perSystem = {
-      config,
-      self',
-      inputs',
-      pkgs,
-      system,
-      ...
-    }: {
-# Per-system attributes can be defined here. The self' and inputs'
-# module parameters provide easy access to attributes of the same
-# system.
-      packages.nodeapp = dream2nix.lib.evalModules {
-       packageSets.nixpkgs = pkgs;
-        modules = [
-          # Import our actual package definiton as a dream2nix module from ./default.nix
-          ./default.nix
-          {
-            # Aid dream2nix to find the project root. This setup should also works for mono
-            # repos. If you only have a single project, the defaults should be good enough.
-            paths.projectRoot = ./.;
-            # can be changed to ".git" or "flake.nix" to get rid of .project-root
-            paths.projectRootFile = "flake.nix";
-            paths.package = ./.;
-          }
-        ];
-      };
-      
-
-# Equivalent to  inputs'.nixpkgs.legacyPackages.hello;
-      formatter = pkgs.alejandra;
-      process-compose."default" = {config, ...}: {
-        imports = [
-          inputs.services-flake.processComposeModules.default
-        ];
-
-# Add a pgweb process, that knows how to connect to our northwind db
-        settings.processes.storybook.command = "${ self'.packages.nodeapp.outPath }/bin/consensus-engine";
-      };
-      devenv.shells.default = {
-# https://devenv.sh/reference/options/
-        packages = [pkgs.hello];
-        languages.javascript = {
-          enable = true;
-          corepack = {
-            enable = true;
-          };
+      ];
+      systems = nixpkgs.lib.systems.flakeExposed;
+      perSystem = {
+        config,
+        self',
+        inputs',
+        pkgs,
+        system,
+        ...
+      }: {
+        # Per-system attributes can be defined here. The self' and inputs'
+        # module parameters provide easy access to attributes of the same
+        # system.
+        packages = dream2nix.lib.importPackages {
+          packageSets.nixpkgs = pkgs;
+          projectRoot = ./.;
+          projectRootFile = "flake.nix";
+          packagesDir = ./nix/packages;
         };
-        enterShell = ''
-          hello
+
+        # Equivalent to  inputs'.nixpkgs.legacyPackages.hello;
+        formatter = pkgs.alejandra;
+        process-compose."default" = {config, ...}: {
+          imports = [
+            inputs.services-flake.processComposeModules.default
+          ];
+
+          # Add a pgweb process, that knows how to connect to our northwind db
+          settings.processes.storybook.command = "${self'.packages.consensus-engine.outPath}/bin/consensus-engine";
+        };
+        devenv.shells.default = {
+          # https://devenv.sh/reference/options/
+          packages = [pkgs.hello];
+          languages.javascript = {
+            enable = true;
+            corepack = {
+              enable = true;
+            };
+          };
+          enterShell = ''
+            hello
           '';
+        };
       };
     };
-  };
 }
