@@ -62,7 +62,7 @@
         ];
 
 # Add a pgweb process, that knows how to connect to our northwind db
-        settings.processes.storybook.command = self'.packages.nodeapp;
+        settings.processes.storybook.command = "${ self'.packages.nodeapp.outPath }/bin/consensus-engine";
       };
       devenv.shells.default = {
 # https://devenv.sh/reference/options/
