@@ -26,8 +26,10 @@ export const PFList: React.FC<PFListProps> = ({}) => {
     <div className={'pf-list'}>
       <div className={clsx('pf-list__item', 'pf-list__item--heading')}>
         <div />
-        <Typography.Text type='secondary'>Prompts</Typography.Text>
-        <Typography.Text type='secondary'>PF</Typography.Text>
+        <Typography.Text type='secondary'>AWS Location</Typography.Text>
+        <Typography.Text type='secondary'>Module</Typography.Text>
+        <Typography.Text type='secondary'>Function</Typography.Text>
+
         <div />
       </div>
       {(pfs || []).map((pf, index) => (
