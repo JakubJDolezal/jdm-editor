@@ -8,3 +8,4 @@
 const handler = (input, { dayjs, Big }) => {
   return input;
 }
+export default handler;
